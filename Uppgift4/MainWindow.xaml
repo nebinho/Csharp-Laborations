@@ -1,0 +1,14 @@
+﻿<Window x:Class="Uppgift4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Uppgift4"
+        mc:Ignorable="d"
+        Title="Hemligt Lösenord" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="showPassword" Content="Visa lösenord" HorizontalAlignment="Left" Margin="304,196,0,0" VerticalAlignment="Top" Height="70" Width="179" FontFamily="Calibri" FontSize="22" Click="showPassword_Click"/>
+        <TextBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="304,122,0,0" Text="Sesam öppna dig!" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Height="48" FontFamily="Calibri" FontSize="18" Visibility="Visible"/>
+
+    </Grid>
+</Window>

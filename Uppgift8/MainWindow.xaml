@@ -1,0 +1,20 @@
+﻿<Window x:Class="Uppgift8.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Uppgift8"
+        mc:Ignorable="d"
+        Title="Mugglarpengar" Height="450" Width="800">
+    <Grid>
+        <Label Content="Galleoner" HorizontalAlignment="Left" Margin="256,72,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtCurrency1" HorizontalAlignment="Left" Margin="256,98,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Siklar" HorizontalAlignment="Left" Margin="256,121,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtCurrency2" HorizontalAlignment="Left" Margin="256,147,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Knutar" HorizontalAlignment="Left" Margin="256,170,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtCurrency3" HorizontalAlignment="Left" Margin="256,196,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnConvert" Content="Konvertera" HorizontalAlignment="Left" Margin="256,230,0,0" VerticalAlignment="Top" Click="btnConvert_Click"/>
+        <Label x:Name="lblOutput" Content="SEK" HorizontalAlignment="Left" Margin="322,226,0,0" VerticalAlignment="Top" Height="28" Width="54" RenderTransformOrigin="0.467,0.682"/>
+
+    </Grid>
+</Window>
