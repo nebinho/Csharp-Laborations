@@ -39,8 +39,6 @@ namespace Uppgift14
                 MessageBox.Show($"Du är {age} år gammal");
             }
         }
-
-
         private bool IsStringCorrect(string input)
         {
             for (int i = 0; i < input.Length; i++)
