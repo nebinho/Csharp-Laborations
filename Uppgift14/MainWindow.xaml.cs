@@ -17,8 +17,6 @@ namespace Uppgift14
 {
     public partial class MainWindow : Window
     {
-        string[] input;
-
 
         public MainWindow()
         {
@@ -27,27 +25,32 @@ namespace Uppgift14
 
         private void btnCountAge_Click(object sender, RoutedEventArgs e)
         {
-            txtBirthAge.Text
+            string input;
+            input = txtBirthAge.Text;
+            
+            if (IsStringCorrect(input) == false)
+            {
+                MessageBox.Show($"Du måste mata in enbart siffror");
+            }
+            else
+            {
+                int age = DateTime.Now.Year - int.Parse(txtBirthAge.Text);
 
-            IsStringCorrect(input);
-
+                MessageBox.Show($"Du är {age} år gammal");
+            }
         }
 
-        
-        private bool IsStringCorrect(string[] input)
+
+        private bool IsStringCorrect(string input)
         {
-            int i = 0;
-
-            
-                if (!Char.IsLetter(input[i], input.Length))
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (Char.IsLetter(input, i))
                 {
-                    return true;
+                    return false;
                 }
-          
-            
-                return false;
+            }
+            return true;
         }
-
-        
     }
 }
