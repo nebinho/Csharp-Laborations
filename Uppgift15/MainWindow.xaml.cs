@@ -15,14 +15,20 @@ using System.Windows.Shapes;
 
 namespace Uppgift15
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+        JibberishTranslator jib = new JibberishTranslator();
+
+        private void btnConvert_Click(object sender, RoutedEventArgs e)
+        {
+            string input = txtInput.Text;
+            lblNmbrOfVowels.Content = $"Antal vokaler: {jib.NumberOfVowels(input)}";
+            tbResult.Text = jib.Jibberish(input);
+            
         }
     }
 }

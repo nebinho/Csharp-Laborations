@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button x:Name="btnConvert" Content="Konvertera till rotvälska" HorizontalAlignment="Center" Margin="0,130,0,0" VerticalAlignment="Top" Height="84" Width="148" Click="btnConvert_Click"/>
+        <TextBox x:Name="txtInput" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" HorizontalAlignment="Left" Margin="190,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="89"/>
+        <TextBlock x:Name="tbResult" HorizontalAlignment="Left" Margin="493,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="89" Width="120"/>
+        <Label Content="Grundtext" HorizontalAlignment="Left" Margin="187,102,0,0" VerticalAlignment="Top"/>
+        <Label Content="Rotvälska" HorizontalAlignment="Left" Margin="487,102,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblNmbrOfVowels" Content="" HorizontalAlignment="Left" Margin="190,238,0,0" VerticalAlignment="Top" Height="30" Width="120"/>
 
     </Grid>
 </Window>
