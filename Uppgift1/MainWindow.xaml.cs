@@ -25,7 +25,7 @@ namespace Uppgift1
             InitializeComponent();
         }
 
-        private void BtnMessage_Click(object sender, RoutedEventArgs e)
+        private void btnMessage_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Hello World!");
         }

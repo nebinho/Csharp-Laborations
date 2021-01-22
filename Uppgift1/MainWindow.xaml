@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Knappen" Height="450" Width="800">
     <Grid>
-        <Button x:Name="BtnMessage" Content="Klicka på mig" HorizontalAlignment="Left" Margin="304,136,0,0" VerticalAlignment="Top" Height="152" Width="224" Click="BtnMessage_Click"/>
+        <Button x:Name="btnMessage" Content="Klicka på mig" HorizontalAlignment="Left" Margin="304,136,0,0" VerticalAlignment="Top" Height="152" Width="224" Click="BtnMessage_Click"/>
 
     </Grid>
 </Window>
