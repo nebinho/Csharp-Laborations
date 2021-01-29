@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Harry_Potter
 {
-    class Hufflepuff : House
+    public class Hufflepuff : House
     {
         public Hufflepuff()
         {
@@ -12,6 +12,9 @@ namespace Harry_Potter
             Mascot = "Grävling";
             Password = "Original Hufflepuff";
         }
-        
+        public override string ToString()
+        {
+            return this.GetType().Name;
+        }
     }
 }

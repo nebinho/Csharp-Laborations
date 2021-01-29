@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Harry_Potter
 {
-    class Gryffindor : House
+    public class Gryffindor : House
     {
         public Gryffindor()
         {
@@ -12,6 +12,9 @@ namespace Harry_Potter
             Mascot = "Lejon";
             Password = "Älskade Gryffindor";
         }
-
+        public override string ToString()
+        {
+            return this.GetType().Name;
+        }
     }
 }

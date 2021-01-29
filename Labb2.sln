@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harry Potter", "Harry Potter\Harry Potter.csproj", "{BEA5E1FB-E971-48FF-A540-BA1238D42B2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harry Potter", "Harry Potter\Harry Potter.csproj", "{BEA5E1FB-E971-48FF-A540-BA1238D42B2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Godiskalkylatorn", "Godiskalkylatorn\Godiskalkylatorn.csproj", "{EC234133-85E4-4093-9164-0BADE50713B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BEA5E1FB-E971-48FF-A540-BA1238D42B2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEA5E1FB-E971-48FF-A540-BA1238D42B2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEA5E1FB-E971-48FF-A540-BA1238D42B2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC234133-85E4-4093-9164-0BADE50713B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC234133-85E4-4093-9164-0BADE50713B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC234133-85E4-4093-9164-0BADE50713B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC234133-85E4-4093-9164-0BADE50713B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

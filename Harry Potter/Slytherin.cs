@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Harry_Potter
 {
-    class Slytherin : House
+    public class Slytherin : House
     {
         public Slytherin()
         {
@@ -12,30 +12,59 @@ namespace Harry_Potter
             Mascot = "Orm";
             Password = "Superior Slytherin";
         }
-
-        public override bool IsCorrectPasswordLength(string inputPass)
+        public override string ToString()
         {
-            if (inputPass.Length >= 8)
-            {
-                return true;
-            }
-            return false;
+            return this.GetType().Name;
         }
 
-        public override bool IsFirstLetterCorrect(string inputPass)
+        public override bool IsInputCorrect(string inputPass, string oldPass)
         {
             string consonant = "BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxZz";
-            char[] passToChar = inputPass.ToLower().ToCharArray();
+            char[] passToChar = inputPass.ToUpper().ToCharArray();
 
-            foreach (char c in consonant)
+            if (oldPass == Password && inputPass.Length >= 8)
             {
-                if (inputPass[0] == c)
+                foreach (char c in consonant)
                 {
-                    return true;
+                    if (inputPass[0] == c)
+                    {
+                        foreach (char d in consonant)
+                        {
+                            if (inputPass[inputPass.Length - 1] == d)
+                            {
+                                return true;
+                            }
+                        }
+                    }
                 }
             }
             return false;
         }
+
+
+        //public override bool IsCorrectPasswordLength(string inputPass)
+        //{
+        //    if (inputPass.Length >= 8)
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+        //}
+
+        //public override bool IsFirstLetterCorrect(string inputPass)
+        //{
+        //    string consonant = "BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxZz";
+        //    char[] passToChar = inputPass.ToLower().ToCharArray();
+
+        //    foreach (char c in consonant)
+        //    {
+        //        if (inputPass[0] == c)
+        //        {
+        //            return true;
+        //        }
+        //    }
+        //    return false;
+        //}
 
     }
 }
