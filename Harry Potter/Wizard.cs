@@ -17,7 +17,7 @@ namespace Harry_Potter
 
         public Wizard()
         {
-            BloodStatus = new string[4] { "Renblod", "Halvblod", "Mugglarfödd", "Okänd" };
+            BloodStatus = "";
             DeathEater = false;
             DumbledoresArmy = false;
             Name = ""; 
