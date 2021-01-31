@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Harry_Potter
 {
-    public class Wizard : House
+    public class Wizard
     {
         #region Properties for wizard
         public string BloodStatus { get; set; }
@@ -13,38 +13,39 @@ namespace Harry_Potter
         public string Name { get; set; }
 
         #endregion
+
         public static readonly Random random = new Random();
 
         public Wizard()
         {
-            BloodStatus = "";
-            DeathEater = false;
-            DumbledoresArmy = false;
+            BloodStatus = GetBloodStatus();
+            DeathEater = GetDeathEater();
+            DumbledoresArmy = GetDumbledoresArmy();
             Name = ""; 
         }
 
         public override string ToString()
         {
-            return $"({Name})";
+            return $"{Name}";
         }
 
         public string GetBloodStatus ()
         {
-            int r = random.Next(1, 100);
+            int r = random.Next(1, 101);
 
-            if (r <= 60)
+            if (r >= 1 && r <= 60)
             {
                 BloodStatus = "Halvblod";
             }
-            else if (r > 60 && r <= 85)
+            else if (r >= 61 && r <= 85)
             {
                 BloodStatus = "Mugglarfödd";
             }
-            else if (r > 85 && r <= 95)
+            else if (r >= 86 && r <= 95)
             {
                 BloodStatus = "Fullblod";
             }
-            else if (r > 95 && r <= 100)
+            else if (r >= 96 && r <= 100)
             {
                 BloodStatus = "Okänt";
             }
@@ -53,32 +54,32 @@ namespace Harry_Potter
 
         public bool GetDeathEater ()
         {
-            int r = random.Next(1, 100);
+            int r = random.Next(1, 101);
 
             if (BloodStatus == "Halvblod")
             {
-                if (r <= 25)
+                if (r >= 1 && r <= 25)
                 {
                     return true;
                 }
             }
             else if (BloodStatus == "Mugglarfödd")
             {
-                if (r <= 15)
+                if (r >= 1 && r <= 15)
                 {
                     return true;
                 }
             }
             else if (BloodStatus == "Fullblod")
             {
-                if (r <= 60)
+                if (r >= 1 && r <= 60)
                 {
                     return true;
                 }
             }
             else if (BloodStatus == "Okänt")
             {
-                if (r  <= 25)
+                if (r >= 1 && r  <= 25)
                 {
                     return true;
                 }
@@ -88,18 +89,18 @@ namespace Harry_Potter
 
         public bool GetDumbledoresArmy()
         {
-            int r = random.Next(1, 100);
+            int r = random.Next(1, 101);
 
             if (!DeathEater)
             {
-                if (r <= 45)
+                if (r >= 1 && r <= 45)
                 {
                     return true;
                 }
             }
             else if (DeathEater)
             {
-                if (r <= 25)
+                if (r >= 1 && r <= 25)
                 {
                     return true;
                 }

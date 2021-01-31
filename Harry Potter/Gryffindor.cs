@@ -11,10 +11,7 @@ namespace Harry_Potter
             HouseGhost = "Nästan Huvudlöse Nick";
             Mascot = "Lejon";
             Password = "Älskade Gryffindor";
-        }
-        public override string ToString()
-        {
-            return this.GetType().Name;
+            Members = new List<Wizard>();
         }
     }
 }

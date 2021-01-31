@@ -11,10 +11,7 @@ namespace Harry_Potter
             HouseGhost = "Blodige Baronen";
             Mascot = "Orm";
             Password = "Superior Slytherin";
-        }
-        public override string ToString()
-        {
-            return this.GetType().Name;
+            Members = new List<Wizard>();
         }
 
         public override bool IsInputCorrect(string inputPass, string oldPass)
@@ -41,7 +38,6 @@ namespace Harry_Potter
             return false;
         }
 
-
         //public override bool IsCorrectPasswordLength(string inputPass)
         //{
         //    if (inputPass.Length >= 8)
@@ -65,6 +61,5 @@ namespace Harry_Potter
         //    }
         //    return false;
         //}
-
     }
 }

@@ -11,12 +11,7 @@ namespace Harry_Potter
             HouseGhost = "Grå Damen";
             Mascot = "Örn";
             Password = "Onödiga Ravenclaw";
+            Members = new List<Wizard>();
         }
-
-        public override string ToString()
-        {
-            return this.GetType().Name;
-        }
-
     }
 }

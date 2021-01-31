@@ -11,10 +11,7 @@ namespace Harry_Potter
             HouseGhost = "Den Tjocke Munkbrodern";
             Mascot = "Grävling";
             Password = "Original Hufflepuff";
-        }
-        public override string ToString()
-        {
-            return this.GetType().Name;
+            Members = new List<Wizard>();
         }
     }
 }

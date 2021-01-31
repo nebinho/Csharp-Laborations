@@ -6,55 +6,46 @@ namespace Harry_Potter
 {
     public class Hogwarts
     {
-        public Gryffindor Gryffindor { get; set; }
-        public Hufflepuff Hufflepuff { get; set; }
-        public Ravenclaw Ravenclaw { get; set; }
-        public Slytherin Slytherin { get; set; }
-
-        public List<Wizard> wizards { get; set; }
-
-
+        public Gryffindor gryffindor { get; set; }
+        public Hufflepuff hufflepuff { get; set; }
+        public Ravenclaw ravenclaw { get; set; }
+        public Slytherin slytherin { get; set; }
 
         public Hogwarts()
         {
-            Gryffindor = new Gryffindor();
-            Hufflepuff = new Hufflepuff();
-            Ravenclaw = new Ravenclaw();
-            Slytherin = new Slytherin();
-
-            wizards = new List<Wizard>();
+            gryffindor = new Gryffindor();
+            hufflepuff = new Hufflepuff();
+            ravenclaw = new Ravenclaw();
+            slytherin = new Slytherin();
         }
 
+        int count = 0;
         public House SortingHat(Wizard wizard)
         {
-            int count = 0;
-
             if (count == 0)
             {
-
+                hufflepuff.Members.Add(wizard);
                 count++;
-                //return gryff
+                return hufflepuff;
             }
             else if (count == 1)
             {
-
+                ravenclaw.Members.Add(wizard);
                 count++;
-                //return huff
+                return ravenclaw;
             }
             else if (count == 2)
             {
-
+                gryffindor.Members.Add(wizard);
                 count++;
-                //return rave
+                return gryffindor;
             }
             else
             {
-
+                slytherin.Members.Add(wizard);
                 count = 0;
-                //return slyth
+                return slytherin;
             }
-
-            return null;
         }
     }
 }

@@ -7,10 +7,21 @@ namespace Harry_Potter
     public abstract class House
     {
         #region Properties for student homes
-        protected string HouseGhost { get; set; }
-        protected string Mascot { get; set; }
-        protected string Password { get; set; }
+        public string HouseGhost { get; set; }
+        public string Mascot { get; set; }
+        public string Password { get; set; }
+        public List<Wizard> Members { get; set; }
         #endregion
+
+        public House()
+        {
+            Members = new List<Wizard>();
+        }
+
+        public override string ToString()
+        {
+            return this.GetType().Name;
+        }
 
         #region Public password methods
         public virtual bool IsInputCorrect(string inputPass, string oldPass)
@@ -36,6 +47,15 @@ namespace Harry_Potter
                 }
             }
             return false;
+        }
+
+        public string SetPassword(bool IsInputCorrect, string inputPass)
+        {
+            if (IsInputCorrect == true)
+            {
+                Password = inputPass;
+            }
+            return Password;
         }
 
         //public virtual bool IsCorrectPasswordLength(string inputPass)
@@ -75,15 +95,6 @@ namespace Harry_Potter
         //    }
         //    return false;
         //}
-
-        public string SetPassword(bool IsInputCorrect, string inputPass)
-        {
-            if (IsInputCorrect == true)
-            {
-               Password = inputPass;
-            }
-            return Password;
-        }
         #endregion
     }
 }
