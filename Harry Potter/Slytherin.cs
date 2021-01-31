@@ -14,12 +14,13 @@ namespace Harry_Potter
             Members = new List<Wizard>();
         }
 
-        public override bool IsInputCorrect(string inputPass, string oldPass)
+        #region Public password method override
+        public override bool IsInputCorrect(string inputPass)
         {
             string consonant = "BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxZz";
             char[] passToChar = inputPass.ToUpper().ToCharArray();
 
-            if (oldPass == Password && inputPass.Length >= 8)
+            if (inputPass.Length >= 8)
             {
                 foreach (char c in consonant)
                 {
@@ -37,29 +38,6 @@ namespace Harry_Potter
             }
             return false;
         }
-
-        //public override bool IsCorrectPasswordLength(string inputPass)
-        //{
-        //    if (inputPass.Length >= 8)
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
-
-        //public override bool IsFirstLetterCorrect(string inputPass)
-        //{
-        //    string consonant = "BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxZz";
-        //    char[] passToChar = inputPass.ToLower().ToCharArray();
-
-        //    foreach (char c in consonant)
-        //    {
-        //        if (inputPass[0] == c)
-        //        {
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-        //}
+        #endregion
     }
 }

@@ -6,10 +6,12 @@ namespace Harry_Potter
 {
     public class Hogwarts
     {
+        #region Hogwarts properties
         public Gryffindor gryffindor { get; set; }
         public Hufflepuff hufflepuff { get; set; }
         public Ravenclaw ravenclaw { get; set; }
         public Slytherin slytherin { get; set; }
+        #endregion
 
         public Hogwarts()
         {
@@ -19,6 +21,7 @@ namespace Harry_Potter
             slytherin = new Slytherin();
         }
 
+        #region SortingHat method
         int count = 0;
         public House SortingHat(Wizard wizard)
         {
@@ -47,5 +50,6 @@ namespace Harry_Potter
                 return slytherin;
             }
         }
+        #endregion
     }
 }

@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 
 namespace Harry_Potter
 {
-
     public partial class MainWindow : Window
     {
         House house;
@@ -26,91 +25,72 @@ namespace Harry_Potter
         {
             InitializeComponent();
             hogwarts = new Hogwarts();
-            
-            cboHouses.ItemsSource = null;
+
+            #region Adds houses to combobox
             cboHouses.Items.Add(hogwarts.gryffindor);
             cboHouses.Items.Add(hogwarts.hufflepuff);
             cboHouses.Items.Add(hogwarts.ravenclaw);
             cboHouses.Items.Add(hogwarts.slytherin);
+            #endregion
 
+            #region Sets mascots to houses
             lblGryffindorMascot.Content = hogwarts.gryffindor.Mascot;
             lblHufflepuffMascot.Content = hogwarts.hufflepuff.Mascot;
             lblRavenclawMascot.Content = hogwarts.ravenclaw.Mascot;
             lblSlytherinMascot.Content = hogwarts.slytherin.Mascot;
+            #endregion
         }
 
         private void btnChangePassword_Click(object sender, RoutedEventArgs e)
         {
-            bool correctInput;
             string newPass, oldPass;
             newPass = txtNewPassword.Text;
             oldPass = txtOldPassword.Text;
 
-            if (cboHouses.SelectedItem.Equals(hogwarts.gryffindor))
+            if (cboHouses.SelectedItem.Equals(hogwarts.gryffindor) && hogwarts.gryffindor.IsPasswordCorrect(oldPass) && hogwarts.gryffindor.IsInputCorrect(newPass))
             {
-                correctInput = hogwarts.gryffindor.IsInputCorrect(newPass, oldPass);
-                hogwarts.gryffindor.SetPassword(correctInput == true, newPass);
-                if (correctInput == false)
-                {
-                    MessageBox.Show($"Antingen matchar inte lösenorden varandra eller så har det nya lösenordet fel format");
-                }
-                else if (correctInput == true)
-                {
-                    MessageBox.Show($"Lösenordsbyte utfört! Ditt nya lösenord är: {hogwarts.gryffindor.Password}");
-                }
+                hogwarts.gryffindor.SetPassword(newPass);
+
+                MessageBox.Show($"Lösenordsbyte utfört! Ditt nya lösenord är: {hogwarts.gryffindor.Password}");
+
                 txtNewPassword.Clear();
                 txtOldPassword.Clear();
-            }            
-            else if (cboHouses.SelectedItem.Equals(hogwarts.hufflepuff))
+            }
+            else if (cboHouses.SelectedItem.Equals(hogwarts.hufflepuff) && hogwarts.hufflepuff.IsPasswordCorrect(oldPass) && hogwarts.hufflepuff.IsInputCorrect(newPass))
             {
-                correctInput = hogwarts.hufflepuff.IsInputCorrect(newPass, oldPass);
-                hogwarts.hufflepuff.SetPassword(correctInput == true, newPass);
-                if (correctInput == false)
-                {
-                    MessageBox.Show($"Antingen matchar inte lösenorden varandra eller så har det nya lösenordet fel format");
-                }
-                else if (correctInput == true)
-                {
-                    MessageBox.Show($"Lösenordsbyte utfört! Ditt nya lösenord är: {hogwarts.hufflepuff.Password}");
-                }
+                hogwarts.hufflepuff.SetPassword(newPass);
+
+                MessageBox.Show($"Lösenordsbyte utfört! Ditt nya lösenord är: {hogwarts.hufflepuff.Password}");
+
                 txtNewPassword.Clear();
                 txtOldPassword.Clear();
-            }            
-            else if (cboHouses.SelectedItem.Equals(hogwarts.ravenclaw))
+            }
+            else if (cboHouses.SelectedItem.Equals(hogwarts.ravenclaw) && hogwarts.ravenclaw.IsPasswordCorrect(oldPass) && hogwarts.ravenclaw.IsInputCorrect(newPass))
             {
-                correctInput = hogwarts.ravenclaw.IsInputCorrect(newPass, oldPass);
-                hogwarts.ravenclaw.SetPassword(correctInput == true, newPass);
-                if (correctInput == false)
-                {
-                    MessageBox.Show($"Antingen matchar inte lösenorden varandra eller så har det nya lösenordet fel format");
-                }
-                else if (correctInput == true)
-                {
-                    MessageBox.Show($"Lösenordsbyte utfört! Ditt nya lösenord är: {hogwarts.ravenclaw.Password}");
-                }
+                hogwarts.ravenclaw.SetPassword(newPass);
+
+                MessageBox.Show($"Lösenordsbyte utfört! Ditt nya lösenord är: {hogwarts.ravenclaw.Password}");
+
                 txtNewPassword.Clear();
                 txtOldPassword.Clear();
-            }            
-            else if (cboHouses.SelectedItem.Equals(hogwarts.slytherin))
+            }
+            else if (cboHouses.SelectedItem.Equals(hogwarts.slytherin) && hogwarts.slytherin.IsPasswordCorrect(oldPass) && hogwarts.slytherin.IsInputCorrect(newPass))
             {
-                correctInput = hogwarts.slytherin.IsInputCorrect(newPass, oldPass);
-                hogwarts.slytherin.SetPassword(correctInput == true, newPass);
-                if (correctInput == false)
-                {
-                    MessageBox.Show($"Antingen matchar inte lösenorden varandra eller så har det nya lösenordet fel format");
-                }
-                else if (correctInput == true)
-                {
-                    MessageBox.Show($"Lösenordsbyte utfört! Ditt nya lösenord är: {hogwarts.slytherin.Password}");
-                }
+                hogwarts.slytherin.SetPassword(newPass);
+
+                MessageBox.Show($"Lösenordsbyte utfört! Ditt nya lösenord är: {hogwarts.slytherin.Password}");
+
                 txtNewPassword.Clear();
                 txtOldPassword.Clear();
+            }
+            else
+            {
+                MessageBox.Show($"Antingen matchar inte lösenorden varandra eller så har det nya lösenordet fel format");
             }
         }
 
         private void btnSortingHat_Click(object sender, RoutedEventArgs e)
         {
-            //string wizardName = txtNewWizardName.Text;
             wizard = new Wizard();
             wizard.Name = txtNewWizardName.Text;
 
@@ -125,18 +105,9 @@ namespace Harry_Potter
 
         public void ShowWizardInfo(Wizard wizard)
         {
-            chkDeatheater.IsChecked = false;
-            chkArmy.IsChecked = false;
-
             txtName.Text = wizard.Name;
-            if (wizard.DeathEater == true)
-            {
-                chkDeatheater.IsChecked = true;
-            }
-            if (wizard.DumbledoresArmy == true)
-            {
-                chkArmy.IsChecked = true;
-            }
+            chkDeatheater.IsChecked = wizard.DeathEater;
+            chkArmy.IsChecked = wizard.DumbledoresArmy;
         }
 
         public void UpdateUI()
@@ -151,6 +122,7 @@ namespace Harry_Potter
             lstSlytherin.ItemsSource = hogwarts.slytherin.Members;
         }
 
+        #region lstMouseDoubleClick controls
         private void lstHufflepuff_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             wizard = (Wizard)lstHufflepuff.SelectedItem;
@@ -174,5 +146,6 @@ namespace Harry_Potter
             wizard = (Wizard)lstSlytherin.SelectedItem;
             ShowWizardInfo(wizard);
         }
+        #endregion
     }
 }

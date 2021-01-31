@@ -11,7 +11,6 @@ namespace Harry_Potter
         public bool DeathEater { get; set; }
         public bool DumbledoresArmy { get; set; }
         public string Name { get; set; }
-
         #endregion
 
         public static readonly Random random = new Random();
@@ -21,7 +20,6 @@ namespace Harry_Potter
             BloodStatus = GetBloodStatus();
             DeathEater = GetDeathEater();
             DumbledoresArmy = GetDumbledoresArmy();
-            Name = ""; 
         }
 
         public override string ToString()
@@ -107,6 +105,5 @@ namespace Harry_Potter
             }
             return false;       
         }
-
     }
 }

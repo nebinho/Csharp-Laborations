@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Godiskalkylatorn
+namespace Harry_Potter
 {
     public static class FileHandler
     {
         public static bool Save(object objectToSave, string filename)
         {
-            string json = Newtonsoft.Json.JsonConvert.SerializeObject(objectToSave, Newtonsoft.Json.Formatting.Indented);
+            string json = Newtonsoft.Json.JsonConvert.SerializeObject(objectToSave,
+            Newtonsoft.Json.Formatting.Indented);
             System.IO.File.WriteAllText(filename, json);
             return true;
         }

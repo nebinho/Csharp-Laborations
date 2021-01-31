@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Harry_Potter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="848" Width="843">
+        Title="HP" Height="848" Width="843">
     <Grid Background="White" Margin="35">
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />

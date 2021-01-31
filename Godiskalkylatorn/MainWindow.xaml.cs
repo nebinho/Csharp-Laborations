@@ -17,15 +17,15 @@ namespace Godiskalkylatorn
 {
     public partial class MainWindow : Window
     {
+        string filename = "PersonList.json";
+
         CandyCalculator candy;
-        Person person;
 
         public MainWindow()
         {
             InitializeComponent();
 
             candy = new CandyCalculator();
-            person = new Person();
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -59,6 +59,17 @@ namespace Godiskalkylatorn
             txtFirstName.Clear();
             txtLastName.Clear();
             txtAge.Clear();
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            FileHandler.Save(candy, filename);
+        }
+
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+            candy = FileHandler.Open<CandyCalculator>(filename);
+            lstPersons.ItemsSource = candy.personList;
         }
     }
 }
