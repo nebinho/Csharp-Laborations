@@ -34,7 +34,7 @@ namespace Harry_Potter
                         foreach (char d in consonant)
                         {
                             if (inputPass[inputPass.Length - 1] == d)
-                            {
+                            {                              
                                 return true;
                             }
                         }                       
@@ -53,10 +53,14 @@ namespace Harry_Potter
             return false;
         }
 
-        public string SetPassword(string inputPass)
+        public bool SetPassword(string inputPass, string oldPass)
         {
-            Password = inputPass;
-            return Password;
+            if (IsPasswordCorrect(oldPass) && IsInputCorrect(inputPass))
+            {
+                Password = inputPass;
+                return true;
+            }
+            return false;
         }
         #endregion
     }

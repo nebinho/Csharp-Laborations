@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,48 +46,42 @@ namespace Harry_Potter
         {
             string newPass, oldPass;
             newPass = txtNewPassword.Text;
-            oldPass = txtOldPassword.Text;
+            oldPass = txtOldPassword.Text;           
 
-            if (cboHouses.SelectedItem.Equals(hogwarts.gryffindor) && hogwarts.gryffindor.IsPasswordCorrect(oldPass) && hogwarts.gryffindor.IsInputCorrect(newPass))
-            {
-                hogwarts.gryffindor.SetPassword(newPass);
-
+            if (cboHouses.SelectedItem.Equals(hogwarts.gryffindor) && hogwarts.gryffindor.SetPassword(newPass, oldPass))
+            {               
                 MessageBox.Show($"Lösenordsbyte utfört! Ditt nya lösenord är: {hogwarts.gryffindor.Password}");
 
-                txtNewPassword.Clear();
-                txtOldPassword.Clear();
+                ClearPasswordBoxes();
             }
-            else if (cboHouses.SelectedItem.Equals(hogwarts.hufflepuff) && hogwarts.hufflepuff.IsPasswordCorrect(oldPass) && hogwarts.hufflepuff.IsInputCorrect(newPass))
+            else if (cboHouses.SelectedItem.Equals(hogwarts.hufflepuff) && hogwarts.hufflepuff.SetPassword(newPass, oldPass))
             {
-                hogwarts.hufflepuff.SetPassword(newPass);
-
                 MessageBox.Show($"Lösenordsbyte utfört! Ditt nya lösenord är: {hogwarts.hufflepuff.Password}");
 
-                txtNewPassword.Clear();
-                txtOldPassword.Clear();
+                ClearPasswordBoxes();
             }
-            else if (cboHouses.SelectedItem.Equals(hogwarts.ravenclaw) && hogwarts.ravenclaw.IsPasswordCorrect(oldPass) && hogwarts.ravenclaw.IsInputCorrect(newPass))
+            else if (cboHouses.SelectedItem.Equals(hogwarts.ravenclaw) && hogwarts.ravenclaw.SetPassword(newPass, oldPass))
             {
-                hogwarts.ravenclaw.SetPassword(newPass);
-
                 MessageBox.Show($"Lösenordsbyte utfört! Ditt nya lösenord är: {hogwarts.ravenclaw.Password}");
 
-                txtNewPassword.Clear();
-                txtOldPassword.Clear();
+                ClearPasswordBoxes();
             }
-            else if (cboHouses.SelectedItem.Equals(hogwarts.slytherin) && hogwarts.slytherin.IsPasswordCorrect(oldPass) && hogwarts.slytherin.IsInputCorrect(newPass))
+            else if (cboHouses.SelectedItem.Equals(hogwarts.slytherin) && hogwarts.slytherin.SetPassword(newPass, oldPass))
             {
-                hogwarts.slytherin.SetPassword(newPass);
-
                 MessageBox.Show($"Lösenordsbyte utfört! Ditt nya lösenord är: {hogwarts.slytherin.Password}");
 
-                txtNewPassword.Clear();
-                txtOldPassword.Clear();
+                ClearPasswordBoxes();
             }
             else
             {
                 MessageBox.Show($"Antingen matchar inte lösenorden varandra eller så har det nya lösenordet fel format");
             }
+        }
+
+        private void ClearPasswordBoxes()
+        {
+            txtNewPassword.Clear();
+            txtOldPassword.Clear();
         }
 
         private void btnSortingHat_Click(object sender, RoutedEventArgs e)
@@ -110,7 +105,7 @@ namespace Harry_Potter
             chkArmy.IsChecked = wizard.DumbledoresArmy;
         }
 
-        public void UpdateUI()
+        private void UpdateUI()
         {
             lstGryffindor.ItemsSource = null;
             lstGryffindor.ItemsSource = hogwarts.gryffindor.Members;
